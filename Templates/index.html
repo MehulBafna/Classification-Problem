@@ -1,1 +1,39 @@
+<!DOCTYPE html>
+<html >
+<!--From https://codepen.io/frytyler/pen/EGdtg-->
+<head>
+  <meta charset="UTF-8">
+  <title>ML API</title>
+  <link href='https://fonts.googleapis.com/css?family=Pacifico' rel='stylesheet' type='text/css'>
+<link href='https://fonts.googleapis.com/css?family=Arimo' rel='stylesheet' type='text/css'>
+<link href='https://fonts.googleapis.com/css?family=Hind:300' rel='stylesheet' type='text/css'>
+<link href='https://fonts.googleapis.com/css?family=Open+Sans+Condensed:300' rel='stylesheet' type='text/css'>
+<link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+  
+</head>
 
+<body>
+ <div class="login">
+	<h1>Heart Failure Prediction</h1>
+
+     <!-- Main Input For Receiving Query to our ML -->
+    <form action="{{ url_for('predict')}}"method="post">
+    	<input type="text" name="age" placeholder="Age" required="required" />
+        <input type="text" name="high_blood_pressure" placeholder="High Blood Pressure Level" required="required" />
+		<input type="text" name="diabetes" placeholder="Diabetes" required="required" />
+        <input type="text" name="serum_sodium" placeholder="Serum Sodium" required="required" />
+        <input type="text" name="serum_creatinine" placeholder="Serum Creatinine" required="required" />
+        <input type="text" name="ejection_fraction" placeholder="Ejection Fraction" required="required" />
+        <input type="text" name="time" placeholder="Time" required="required" />
+        <button type="submit" class="btn btn-primary btn-block btn-large">Predict</button>
+    </form>
+
+   <br>
+   <br>
+   {{ prediction_text }}
+
+ </div>
+
+
+</body>
+</html>
